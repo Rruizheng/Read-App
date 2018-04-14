@@ -1,0 +1,34 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+		<meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" type="text/css" href="/static/css/reset.css">
+		<link rel="stylesheet" type="text/css" href="/static/css/index.css">
+		<title>书城首页</title>
+	</head>
+	<body>
+		<div id="app" v-bind:style="{width:screen_width+'px',overflow:'hidden'}">
+			<% include include/header.html %>
+			<div v-bind:style="{width:double_screen_width,transitionDuration:'.5s',transform:'translate3d('+position+'px,0px,0px)'}">
+				<div class="container-warp" v-bind:style="{width:screen_width+'px',float:'left'}"  v-cloak>
+					<div class="container-scroll" style="top:0px">
+						<% include include/index-top.html %>
+						<% include include/index-hot.html %>
+						<% include include/index-recommend.html %>
+						<% include include/index-female.html %>
+						<% include include/index-male.html %>
+						<% include include/index-free.html %>
+						<% include include/index-bottom.html %>
+					</div>
+				</div>
+				<div v-bind:style="{width:screen_width+'px',float:'left'}"  v-cloak>
+					<% include include/index-shelf.html %>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="/static/script/vue.js"></script>
+	<script src="/static/script/zepto.js"></script>
+	<script src="/static/script/pages/index.js"></script>
+</html>

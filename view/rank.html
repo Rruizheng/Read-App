@@ -1,0 +1,78 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,minimal-ui">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" href="/static/css/all.css"/>
+	<title></title>
+	<style>
+		.rank-title{
+			border-bottom: 1px solid #f0f0f0;
+			padding: 15px 13px 14px 13px;
+			position: relative;
+			border-left: 6px solid #ffab18;
+		}
+		.rank-title>p{
+			position: relative;
+			font: bold 16px/16px a;
+			color: rgba(0,0,0,0.9);
+		}
+		.original-rank-list{
+			border-bottom: 10px solid #f5f5f5;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="root"  v-cloak>
+		<div class="Swipe Swipe_full Destructor">
+			<div v-bind:style="{width:screen_width+'px',transitionDuration: '0s',transform: 'translate3d(0px, 0px, 0px)'}">
+				<div v-bind:style="{width:screen_width +'px'}">
+					<% include include/common-header.html %>
+					<div class="Swipe Swipe_full container-scroll Destructor">
+						<div v-bind:style="{width:double_screen_width,transitionDuration: '0s', transform: 'translate3d(0px, 0px, 0px)'}">
+							<div v-bind:style="{width:screen_width +'px'}">
+								<div id="app">
+									<div class="rank-title">
+										<p>总排行</p>
+									</div>
+									<ul class="original-rank-list">
+										<li class="original-rank-list__item" v-if="$index<19" v-for="item in d.items">
+											<img v-bind:src="item.cover" class="original-rank-list__img">
+											<div class="original-rank-list__content">
+												<p class="original-rank-list__page" v-for="book in item.description">
+													<span class="original-rank-list__num">{{ (item.id)}}</span>
+													{{ book }}
+												</p>
+											</div>
+										</li>
+									</ul>
+									<div class="rank-title">
+										<p>分类排行</p>
+									</div>
+									<ul class="original-rank-list">
+										<li class="original-rank-list__item" v-if="$index>18" v-for="item in d.items">
+											<img v-bind:src="item.cover" class="original-rank-list__img">
+											<div class="original-rank-list__content">
+												<p class="original-rank-list__page" v-for="book in item.description">
+													<span class="original-rank-list__num">{{ ($index + 1)}}</span>
+													{{ book }}
+												</p>
+											</div>
+										</li>
+									</ul>
+									
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="/static/script/vue.js"></script>
+	<script src="/static/script/zepto.js"></script>
+	<script src="/static/script/pages/rank.js"></script>
+</body>
+</html>
